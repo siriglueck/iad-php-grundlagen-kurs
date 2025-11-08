@@ -24,13 +24,14 @@ Das Repository enthält die Materialien zu allen Wochen:
 ```txt
 php_kurs_woche1/
   ├── PHP_Grundlagen_Woche1_Teilnehmerversion.md
-  └── Materialien/
+  └── materialien/
 php_kurs_woche2/
   ├── PHP_Grundlagen_Woche2_Teilnehmerversion.md
-  └── Materialien/
+  └── materialien/
 php_kurs_woche3/
   ├── PHP_Grundlagen_Woche3_Teilnehmerversion.md
-  └── README.md
+  └── materialien
+README.md
 ```
 
 Jede Woche enthält:
