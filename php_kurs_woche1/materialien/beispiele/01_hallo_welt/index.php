@@ -7,9 +7,14 @@
   <link rel="stylesheet" href="../../style/style.css">
 </head>
 <body>
-  <header><h1>Hallo PHP 8.4 👋</h1></header>
+  <header><h1>Hallo PHP 8.3 👋</h1></header>
   <main class="container">
-    
+    <p>
+      <?php echo "Hallo PHP 8.3!" ?>>
+    </p>
+    <p>
+      Datum: <?php echo date("d.m.y"); ?>>
+    </p>
   </main>
 </body>
 </html>
