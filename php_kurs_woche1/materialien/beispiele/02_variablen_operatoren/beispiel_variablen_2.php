@@ -34,6 +34,13 @@
         const MIN_TAG = 24 * 60;
 
         echo '<p> Ein Tag hat ', MIN_TAG,' Minuten. bzw. ', SEK_TAG,' Sekunden.</p>';
+
+        // ### Verketten und Rechnen ###
+        $zahl = 5;
+        $nochEineZahl = 1;
+
+        echo "<p>Die Summe der Zahlen $zahl und $nochEineZahl ergibt:" . ($zahl + $nochEineZahl) ."</p>";
+
     ?>
 </body>
 </html>
