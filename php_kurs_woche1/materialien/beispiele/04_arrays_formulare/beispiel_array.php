@@ -92,8 +92,7 @@ $laender = array(
         <th>Sprache</th>
         <th>Währung</th>
         <th>Fläche</th>
-      </tr>
-    
+      </tr>   
       <?php foreach( $laender as $land => $infos ): ?>
         <tr>
           <td><?= htmlspecialchars($land) ?></td>
@@ -103,6 +102,8 @@ $laender = array(
         </tr>
       <?php endforeach; ?>
     </table>
+
+
   </main>
 </body>
 </html>
