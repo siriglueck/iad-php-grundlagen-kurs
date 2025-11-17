@@ -53,7 +53,7 @@
 
                 <tr>
                     <td colspan="4">
-                        <button style="" type="submit">In den Warenkorb</button>
+                        <button style="" type="submit" name="schoko">In den Warenkorb</button>
                         <hr>
                         <button type="reset">Abbrechen</button>
                     </td>

@@ -55,13 +55,21 @@
 
                 // Artikel eintragen
                 foreach($_SESSION as $artnr => $menge) :
-                    if( $str_starts_with($artnr, 's') ) : ?>
+                    if( str_starts_with($artnr, 'p') ) : ?>
                         <tr>
                             <td><?= $artnr ?></td>
                             <td><?= $array_pralinen[$artnr] ?></td>
                             <td><?= $menge ?></td>
                         </tr>
-                        <?php $bestellung .= "$artnr;" . $array_pralinen[$artnr] . ";$menge\r\n" ?>    
+                        <?php $bestellung .= "$artnr;" . $array_pralinen[$artnr] . ";$menge\r\n" ?>
+                    <?php endif;
+                    if( str_starts_with($artnr, 's') ) : ?>
+                        <tr>
+                            <td><?= $artnr ?></td>
+                            <td><?= $array_schoko[$artnr] ?></td>
+                            <td><?= $menge ?></td>
+                        </tr>
+                        <?php $bestellung .= "$artnr;" . $array_schoko[$artnr] . ";$menge\r\n" ?>       
                     <?php endif; ?>
                 <?php endforeach;
                     $bestellung .= "\r\nbestellt von\r\n$vorname;
@@ -75,8 +83,11 @@
          <p>Vielen Dank für Ihren Einkauf!</p>
          <?php 
             // Bestellung speichern
-            file_put_contents('bestellung.csv',$bestellung, FILE_APPEND);
-            
+            $file = __DIR__ . '/bestellung.csv';
+            file_put_contents($file, $bestellung, FILE_APPEND);
+            // need to give the right to the server to write this file too
+            // go inside the directory then sudo chown www-data:www-data .
+
             // Session (Warenkorn) löschen
             $_SESSION = array();
             session_destroy();
