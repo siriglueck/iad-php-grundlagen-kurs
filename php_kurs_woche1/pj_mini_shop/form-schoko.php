@@ -31,13 +31,15 @@
 
                 <?php
                 /**
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 * 
-                 */ 
+                * Schleife über das Array der Kategorie Schokolade
+                * gibt pro Artikel eine Tabellenzelle mit
+                * - der Artikelnummer
+                * - der Artikelbezeichnung
+                * - einem Formularfeld für die Angabe der Bestellmenge und
+                * - die Angabe der Maßeinheit aus
+                * 
+                * Das Formularfeld bekommt das name-Attribut mit der Artikelnummer ($artnr) und das value-Attribut mit der bereits bestellten Menge bzw. dem Wert 0. Die bereits bestellte Menge wird aus dem Session-Array ausgelesen.
+                * */
                 foreach( $array_schoko as $artnr => $artikel ):
                 ?>
             

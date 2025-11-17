@@ -17,8 +17,7 @@
             <?php 
                 foreach($_SESSION as $key => $value) {
                     echo "$key: $value <br>";
-                }
-                
+                }    
             ?>
         <p>Weiter zu <a href="session-start.php">starten Seite</a></p>
 
