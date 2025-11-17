@@ -1,7 +1,11 @@
 <?php
 declare(strict_types=1);
-
+// echo "<pre>". print_r( __DIR__, true ) ."</pre>";
+require_once __DIR__ . '/inc/tools.php';
+//require_once 'inc/tools.php';
+$result = preisMitMwst(100, 0.19, 10);
 ?>
+
 <!doctype html>
 <html lang="de">
 <head>
