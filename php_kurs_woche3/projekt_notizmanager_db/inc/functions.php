@@ -36,4 +36,9 @@ function updateNote(PDO $pdo, int $id, string $title, string $content, ?int $cat
         ':cat' => $categoryId,
         ':id' => $id
     ]);   
-}   
+}
+
+function deleteNote(PDO $pdo, int $id): void {
+    $stmt = $pdo->prepare('DELETE FROM notes WHERE id=:id');
+    $stmt->execute([':id'=>$id]);
+} 
