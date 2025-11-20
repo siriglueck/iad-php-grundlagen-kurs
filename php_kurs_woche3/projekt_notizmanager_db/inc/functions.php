@@ -26,3 +26,14 @@ function findNote(PDO $pdo, int $id): ?object {
     $row = $stmt->fetch();
     return $row ?: null;
 }
+
+function updateNote(PDO $pdo, int $id, string $title, string $content, ?int $categoryId = null):void {
+    $stmt = $pdo->prepare('UPDATE notes SET title=:t, content=:c, category_id=:cat
+    WHERE id=:id');
+    $stmt->execute([
+        ':t' => $title,
+        ':c' => $content,
+        ':cat' => $categoryId,
+        ':id' => $id
+    ]);   
+}   
