@@ -19,3 +19,10 @@ function addNote(PDO $pdo, string $title, string $content, ?int $catId = null):v
     $stmt = $pdo->prepare('INSERT INTO notes(title, content, category_id) VALUES (:t, :c, :cat)');
     $stmt->execute([':t' => $title, ':c' => $content, ':cat' => $catId]);
 }
+
+function findNote(PDO $pdo, int $id): ?object {
+    $stmt = $pdo->prepare('SELECT * FROM notes WHERE id=:id');
+    $stmt->execute([':id' => $id]);
+    $row = $stmt->fetch();
+    return $row ?: null;
+}
