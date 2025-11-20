@@ -11,4 +11,6 @@ function getAllNotes(PDO $pdo):array {
     return $pdo->query($sql)->fetchAll();
 }
     
-    
+function safe(string $s): string {
+    return htmlspecialchars($s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+}
