@@ -34,7 +34,7 @@
     <main class="container">
         <section class="card">
             <form action="update.php" method="post">
-                <input type="hiddle" name="id" value="<?= (int)$note->id ?>">
+                <input type="hidden" name="id" value="<?= (int)$note->id ?>">
                 <label for="">Titel <input type="text" name="title" value="<?= safe($note->title) ?>"  required></label>
                 <label for="">Inhalt <textarea name="content" rows="10" required><?= safe($note->content) ?></textarea></label>
                 <label for="">Kategorie
