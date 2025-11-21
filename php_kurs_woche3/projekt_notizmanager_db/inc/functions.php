@@ -44,3 +44,7 @@ function authenticate(PDO $pdo, string $username, string $password): bool {
   if(!$row) return false;
   return password_verify($password, $row->password_hash);
 }
+
+function is_logged_in(): bool {
+  return isset($_SESSION['user']) && $_SESSION['user'] !== '';
+}
