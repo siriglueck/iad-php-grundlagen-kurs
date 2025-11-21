@@ -48,3 +48,22 @@ function authenticate(PDO $pdo, string $username, string $password): bool {
 function is_logged_in(): bool {
   return isset($_SESSION['user']) && $_SESSION['user'] !== '';
 }
+
+
+function current_user(): ?string {
+  return isset($_SESSION['user']) && $_SESSION['user'] !== '' 
+    ? (string)$_SESSION['user']
+    : null;
+}
+
+/**
+ * Schützt eine Seite vor unbefugtem Zugriff
+ * 
+ * 
+ */
+function require_login(): void {
+  if(!is_logged_in()) {
+    header('Location: login.php');
+    exit;
+  }
+}
