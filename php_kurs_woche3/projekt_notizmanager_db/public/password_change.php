@@ -40,27 +40,27 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <main class="container">
+    <h2>Passwort ändern</h2>
+    <?php if($error): ?>
+        <p class="alert"><?= safe($error) ?></p>
+    <?php endif; ?>
 
-  <?php if($error): ?>
-    <p class="alert"><?= safe($error) ?></p>
-  <?php endif; ?>
+    <?php if($success): ?>
+        <p class="alert alert-success"><?= safe($success) ?></p>
+    <?php endif; ?>
 
-  <?php if($success): ?>
-    <p class="alert alert-success"><?= safe($success) ?></p>
-  <?php endif; ?>
-
-  <form action="<?= $_SERVER['SCRIPT_NAME']; ?>" method="post">
-    <label>Aktuelles Passwort:
-      <input type="password" name="current_password" required>
-    </label>
-    <label>Neues Passwort (mind. 8 Zeichen):
-      <input type="password" name="new_password" required>
-    </label>
-    <label>Neues Passwort wiederholen:
-      <input type="password" name="new_password_repeat" required>
-    </label>
-    <button type="submit">Passwort ändern</button>
-    <a href="index.php" class="button">Zurück auf Los!</a>
-  </form>
+    <form action="<?= $_SERVER['SCRIPT_NAME']; ?>" method="post">
+        <label>Aktuelles Passwort:
+        <input type="password" name="current_password" required>
+        </label>
+        <label>Neues Passwort (mind. 8 Zeichen):
+        <input type="password" name="new_password" required>
+        </label>
+        <label>Neues Passwort wiederholen:
+        <input type="password" name="new_password_repeat" required>
+        </label>
+        <button type="submit">Passwort ändern</button>
+        <a href="index.php" class="button">Zurück auf Los!</a>
+    </form>
 
 </main>
