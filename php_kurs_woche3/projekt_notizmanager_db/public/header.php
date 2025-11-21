@@ -29,11 +29,10 @@
     <link rel="stylesheet"  href="<?= $path ?>../css/style.css">
 </head>
 <body>
+    <?php require_once 'nav.php' ?>
+    
     <header>
         <div class="container">
             <h1>Notiz-Manager DB</h1>
-            <div class="text-muted">
-                Manage User Login
-            </div>
         </div>
     </header>
