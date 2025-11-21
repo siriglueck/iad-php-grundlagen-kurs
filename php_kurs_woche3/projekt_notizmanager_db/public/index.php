@@ -33,18 +33,23 @@
                     </tr>
                 </thead>
                     <?php foreach ($notes as $n): ?>
-                        <tr>
-                            <td><?= safe($n->title) ?></td>
-                            <td><?= $n->category ?></td>
-                            <td><?= safe($n->created_at) ?></td>
-                            <td>
-                                <a href="edit.php?id=<?= (int)$n->id ?>" class="button">Bearbeiten</a>
-                                <form action="delete.php" style="display:inline;" method="post">
-                                    <input type="hidden" name="id" value="<?= (int)$n->id ?>">
-                                    <button type="submit" class="button text-danger ">Löschen</button>
-                                </form>
-                            </td>
-                        </tr>
+                        <?php if( !is_logged_in() && ($n->category) == 'Privat'): ?>
+                            <?php continue; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td><?= safe($n->title) ?></td>
+                                <td><?= $n->category ?></td>
+                                <td><?= safe($n->created_at) ?></td>
+                                <td>
+                                    
+                                    <a href="edit.php?id=<?= (int)$n->id ?>" class="button">Bearbeiten</a>
+                                    <form action="delete.php" style="display:inline;" method="post">
+                                        <input type="hidden" name="id" value="<?= (int)$n->id ?>">
+                                        <button type="submit" class="button text-danger ">Löschen</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 <tbody>
                         
