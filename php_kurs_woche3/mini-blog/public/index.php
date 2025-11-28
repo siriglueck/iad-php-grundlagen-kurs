@@ -6,6 +6,7 @@
     $posts = getAllPosts($pdo);
     $filteredPosts = $posts; 
     $filter = null;
+    $num = 1;
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $filter = $_POST['filter'] ?? null;
@@ -48,7 +49,7 @@
         </section>
         <div style="display: flex; flex-direction: row-reverse; margin: 1rem 0 1rem 0;">
             <?php if(is_logged_in()): ?>
-                <a href="posts/create.php" class="button">Create</a>
+                <a href="posts/create.php" class="button">Erstellen</a>
             <?php else: ?>
                 <!--  -->
             <?php endif; ?>                
@@ -66,7 +67,7 @@
                     <?php foreach ($filteredPosts as $p): ?>
                         <tr>
                             <td>
-                                <?= (int)$p->posts_id . '. ' ?>
+                                <?= (int)$num++ . '. ' ?>
                                 <a href="post_single.php?id=<?= (int)$p->posts_id ?>">
                                     <?= safe($p->posts_header) ?>
                                 </a>

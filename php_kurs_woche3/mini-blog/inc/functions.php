@@ -45,3 +45,18 @@ function authenticate(PDO $pdo, string $username, string $password): bool {
 function is_logged_in(): bool {
   return isset($_SESSION['user']) && $_SESSION['user'] !== '';
 }
+
+function addPost(PDO $pdo, string $title, string $content, int $catId, string $image):void {
+    $stmt = $pdo->prepare('INSERT INTO tbl_posts(posts_header, posts_content, posts_categ_id_ref, posts_image) VALUES (:t, :c, :cat, :img)');
+    $stmt->execute([':t' => $title, ':c' => $content, ':cat' => $catId, ':img' => $image]);
+}
+
+function updatePost(PDO $pdo, int $id,string $title, string $content, int $catId, string $image):void {
+  $stmt = $pdo->prepare('UPDATE tbl_posts SET posts_header=:t, posts_content=:c, posts_categ_id_ref=:cat, posts_image=:img WHERE posts_id=:id');
+  $stmt->execute([':t' => $title, ':c' => $content, ':cat' => $catId, ':img' => $image, ':id' => $id]);
+}
+
+function deletePost(PDO $pdo, int $id): void {
+    $stmt = $pdo->prepare('DELETE FROM tbl_posts WHERE posts_id=:id');
+    $stmt->execute([':id'=>$id]);
+} 

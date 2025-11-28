@@ -41,7 +41,7 @@ CREATE TABLE tbl_posts (
 -- Seed tbl_users
 -- Demo-User: admin / admin123 (Bitte Passwort direkt nach Import ändern!)
 INSERT INTO tbl_users(users_forename, users_lastname, users_email, users_password) VALUES
-('123', 'admin' , 'admin123@miniblog.com', '$2y$10$0mH5QxNHj1l0XnqU.g2UuOx5y6s31YbKkk2m1X5X5aF2w/2GfZx8i');
+('123', 'admin' , 'admin123@miniblog.com', '$2y$10$bZm2d/kfvq9pVUUf8zP.aeiroCjkCz6zyCYjowEiGh7uA6wYlO8ni');
 
 -- Seed tbl_categories
 INSERT INTO tbl_categories(categ_name, categ_desc) VALUES
