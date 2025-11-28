@@ -7,7 +7,8 @@
     session_start();
     require_once __DIR__ . '/../inc/db-connect.php';
 
-    
+    $uri = $_SERVER['SCRIPT_FILENAME'];
+    $path = ( !str_ends_with(dirname($uri),'public') ) ? '../' : '' ;
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +17,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini-Blog</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="<?= $path ?>../css/style.css">
 </head>
 <body>
+    <?php include_once __DIR__ . '/nav.php' ?>

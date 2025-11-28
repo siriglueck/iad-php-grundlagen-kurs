@@ -2,8 +2,6 @@
     require_once  __DIR__ . '/header.php';
     require_once  dirname(__DIR__) . '/inc/functions.php';
 
-    
-
     // echo '<pre>', print_r( $posts ), '</pre>';
     $posts = getAllPosts($pdo);
     $filteredPosts = $posts; 
@@ -16,7 +14,6 @@
 
         if ($filter !== null && $filter !== '') {
         if ($filter === "alle") {
-            // "alle" = แสดงทุกโพสต์
             $filteredPosts = $posts;
         } else {
             // Filter with PHP
@@ -29,7 +26,7 @@
 
 ?>
 
-    <?php include_once __DIR__ . '/nav.php' ?>
+    
     <main class="container">
         <h2>Startseite</h2>
         
@@ -50,7 +47,11 @@
             </form>
         </section>
         <div style="display: flex; flex-direction: row-reverse; margin: 1rem 0 1rem 0;">
-            <a href="index.php" class="button">Create</a>
+            <?php if(is_logged_in()): ?>
+                <a href="posts/create.php" class="button">Create</a>
+            <?php else: ?>
+                <!--  -->
+            <?php endif; ?>                
         </div>
         <section class="card">
             <table>

@@ -32,3 +32,16 @@ function getFilterPosts(PDO $pdo, string $filter):array {
     $pdo->execute(['filter' => $filter]);
     return $pdo->fetchAll();
 }
+
+function authenticate(PDO $pdo, string $username, string $password): bool {
+  $stmt = $pdo->prepare('SELECT users_email, users_password FROM tbl_users WHERE users_email=:u');
+  $stmt->execute([':u'=> $username]);
+  $row = $stmt->fetch();
+  echo '<pre>', var_dump( $row ), '</pre>';
+  if(!$row) return false;
+  return password_verify($password, $row->users_password);
+}
+
+function is_logged_in(): bool {
+  return isset($_SESSION['user']) && $_SESSION['user'] !== '';
+}
